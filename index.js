@@ -3,7 +3,7 @@ const http = require('http');
 const server = http.createServer((req, res) => {
     const myhtml = `
     <h1>Hello Node.js</h1>
-    <p>Naruto</p>`
+    <p style="color:orange">Naruto</p>`
 
     res.write(myhtml);
     res.end();
