@@ -62,4 +62,4 @@ start----------> Downloading-----------> Complete
 
 ## Webserver With Node.js
 
-![Web with node](./img/web with node.png)
+![web with node](https://user-images.githubusercontent.com/106058972/226942775-28c16b06-12fc-4806-bd44-e9757abd6fa0.png)
