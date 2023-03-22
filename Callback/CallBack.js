@@ -1,7 +1,7 @@
 //CallBack Fucntion
 
 function calculate(x, y, callback){
-    console.log("de]y'8eo;I...");
+    console.log("กำลังคำนวณ...");
     setTimeout(() =>{
         const sum = x+y;
         callback(sum);
