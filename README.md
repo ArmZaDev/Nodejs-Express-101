@@ -54,6 +54,7 @@ start----------> Downloading-----------> Complete
 * then() ใช้งานร่วมกับสถานะ resolve หรือเมื่อ Promise สำงานสำเร็จ
 * catch() ฬช้วานร่วมกับสถานะ reject หรือเมื่อ Promise ทำงานผิดพลาด
 * finally() ไม่ว่าผลลัพธ์ของสถานะจะเป็นอย่างไรให้ทำงานส่วนนนี้ได้เลย
+***
 
 <h3 align="center"><strong>Module</strong></h3>
 
@@ -63,3 +64,10 @@ start----------> Downloading-----------> Complete
 ## Webserver With Node.js
 
 ![web with node](https://user-images.githubusercontent.com/106058972/226942775-28c16b06-12fc-4806-bd44-e9757abd6fa0.png)
+
+## Routing
+
+![routing](https://user-images.githubusercontent.com/106058972/227142974-ee669b34-3763-4cee-8a35-4214518864de.png)
+
+> กำหนดเส้นทางรับส่งข้อมูลหรือ URL ในการอนุญาตให้เข้าถึงข้อมูลรวมไปถึงตรวกสอบ URL Request เพื่อจะได้กำหนดรูปแบบการทำงาน
+***
