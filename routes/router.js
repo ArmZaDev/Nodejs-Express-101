@@ -8,8 +8,20 @@ router.get("/home", (req, res) => {
     res.sendFile(path.join(__dirname,"../templates/index.html"))
 })
 
-router.get("/product", (req, res) => {
-    res.sendFile(path.join(__dirname,"../templates/product1.html"))
+router.get("/product/:id", (req, res) => {
+    // res.sendFile(path.join(__dirname,"../templates/product1.html"))
+    const productID = req.params.id;
+
+    if(productID === "1"){
+        res.sendFile(path.join(__dirname,"../templates/product1.html"))
+    }else if(productID === "2"){
+        res.sendFile(path.join(__dirname,"../templates/product2.html"))
+    }else if(productID === "3"){
+        res.sendFile(path.join(__dirname,"../templates/product3.html"))
+    }else{
+        res.status(404);
+        res.send("<h1>404 Page Not Found</h1>");
+    }
 })
 
 module.exports = router;
