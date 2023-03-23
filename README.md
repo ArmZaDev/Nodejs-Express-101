@@ -71,3 +71,12 @@ start----------> Downloading-----------> Complete
 
 > กำหนดเส้นทางรับส่งข้อมูลหรือ URL ในการอนุญาตให้เข้าถึงข้อมูลรวมไปถึงตรวกสอบ URL Request เพื่อจะได้กำหนดรูปแบบการทำงาน
 ***
+
+<h3 align="center"><strong>Express Framework</strong></h3>
+
+Express.j เป็น Framework ของ JavaScript ที่ใช้ทำงานร่วมกับ Node.js เพื่อสนับสนุนการทำงานของ Web Server ให้มีความง่ายและสะดวกสบายยิ่งขึ้น เนื่องจากมี Feature หลายๆอย่างที่น่าสนใจ เช่น Routing การจัดการ Request, Resonse และ Middleware เป็นต้น
+
+## Express & Routing 
+
+* get() เป็นเมธอดสำหรับกำหนดการทำงานตามเส้นทางที่ระบุเมื่อ request ถูกส่งเข้ามาเช่น การส่งค่ามาพร้อมกับ URL เป็นต้น
+* callback fucntion คือ สำหรับกำหนดรูปแบบการตอบสนองที่เกิดขึ้นเพื่อส่ง request เข้ามาในเส้นทางดังกล่าว
