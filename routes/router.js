@@ -10,4 +10,16 @@ router.get('/', (req, res) => {
     res.render('index.ejs',{products:products});
 })
 
+router.get('/addForm', (req, res) => {
+    res.render('form.ejs');
+})
+
+router.get('/manage', (req, res) => {
+    res.render('manage.ejs');
+})
+
+router.get('/insert', (req, res) => {
+    console.log(req.query);
+})
+
 module.exports = router;
