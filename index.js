@@ -6,6 +6,8 @@ const app = express(); //object express
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engin', 'ejs-lint');
 
+app.use(express.urlencoded({extended:false}));
+
 app.use(router);
 app.use(express.static(path.join(__dirname, 'public')));
 
