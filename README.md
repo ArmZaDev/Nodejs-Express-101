@@ -124,3 +124,29 @@ Express.js เป็น Framework ของ JavaScript ที่ใช้ทำ�
 * จัดการข้อมูลผ่าน Model (เพิ่ม, ลบ, แก้ไข, สอบถาม)
 
 ![mongoose](https://user-images.githubusercontent.com/106058972/227542146-c397d3e8-b173-4629-b725-cb777529c699.png)
+
+**การสร้าง Schema และ Model**
+> Schema คือ โครงสร้างในการเก็บข้อมูล
+> Model คือ ส่วนที่ใช้จัดการเกี่ยวกับข้อมูล
+
+```
+// ออกแบบ Shema
+let productSchema = mongoose.Schema({
+    name:String,
+    price:Number,
+    image:String,
+    description:String
+})
+```
+
+```
+// ส้รางโมเดล
+let Product = mongoose.model("products", productSchema);
+
+// ส่งออกโมเดล
+module.exports = Product;
+```
+
+## MongoDB Compass
+
+![mongo compass](https://user-images.githubusercontent.com/106058972/227711238-d79f4d36-8bd8-4e9c-89fc-0e074b2e79fa.png)
