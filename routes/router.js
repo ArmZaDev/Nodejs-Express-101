@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/products.js');
+const Product = require('../models/products');
 
 router.get('/', (req, res) => {
     const products = [
@@ -8,20 +8,28 @@ router.get('/', (req, res) => {
         {name:"เสื้อผ้า", price:2000, image:"images/products/product2.png"},
         {name:"หูฟัง", price:800, image:"images/products/product3.png"},
     ]
-    res.render('index.ejs',{products:products});
+    res.render('index',{products:products});
 })
 
 router.get('/addForm', (req, res) => {
-    res.render('form.ejs');
+    res.render('form');
 })
 
 router.get('/manage', (req, res) => {
-    res.render('manage.ejs');
+    res.render('manage');
 })
 
 router.post('/insert', (req, res) => {
-    console.log(req.body);
-    res.render('form');
+    let data = new Product({
+        name:req.body.name,
+        price:req.body.price,
+        image:req.body.image,
+        description:req.body.description
+    })
+    Product.saveProduct(data, function(err){
+        if(err) console.log(err);
+        res.redirect('/');
+    })
 })
 
 module.exports = router;
