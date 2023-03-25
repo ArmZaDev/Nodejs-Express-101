@@ -150,3 +150,7 @@ module.exports = Product;
 ## MongoDB Compass
 
 ![mongo compass](https://user-images.githubusercontent.com/106058972/227711238-d79f4d36-8bd8-4e9c-89fc-0e074b2e79fa.png)
+
+**Insert Data**
+
+![Insert data](https://user-images.githubusercontent.com/106058972/227719373-b46be830-c0ba-4ba4-ba86-86df576e502c.png)
