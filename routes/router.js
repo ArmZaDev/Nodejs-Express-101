@@ -1,6 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/products');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination:function(req, file, cb){
+        cb(null, './public/images/products');
+    },
+    filename:function(req, file, cb){
+        cb(null, Date.now() + ".jpg")
+    }
+})
 
 router.get('/', (req, res) => {
     const products = [
@@ -19,11 +29,15 @@ router.get('/manage', (req, res) => {
     res.render('manage');
 })
 
-router.post('/insert', (req, res) => {
+const upload = multer({
+    storage:storage
+})
+
+router.post('/insert', upload.single("image"), (req, res) => {
     let data = new Product({
         name:req.body.name,
         price:req.body.price,
-        image:req.body.image,
+        image:req.file.fieldname,
         description:req.body.description
     })
     Product.saveProduct(data, function(err){

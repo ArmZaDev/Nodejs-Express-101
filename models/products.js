@@ -1,5 +1,6 @@
 // ใช้งาน mongoose
 const mongoose = require('mongoose');
+mongoose.set('strictQuery', true);  //close warning
 
 // เชื่อมต่อไปยัง mongoDB
 const dbUrl = 'mongodb://127.0.0.1:27017/productDB'
