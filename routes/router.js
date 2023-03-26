@@ -60,4 +60,25 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/edit', (req, res) => {
+    const edit_id = req.body.edit_id;
+    Product.findOne({_id:edit_id}).exec((err, doc) => {
+        res.render('edit', {product:doc});
+    })
+})
+
+router.post('/update', (req, res) => {
+    // ข้อมูลใหม่ที่ถูกส่งมาจากฟอร์มแก้ไข
+    const update_id = req.body.update_id;
+    let data = {
+        name:req.body.name,
+        price:req.body.price,
+        description:req.body.description
+    }
+    //อัพเดตข้อมูล
+    Product.findByIdAndUpdate(update_id, data, {useFindAndModify:false}).exec(err => {
+        res.redirect('/manage')
+    })
+})
+
 module.exports = router;
