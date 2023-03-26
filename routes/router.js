@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
     
 })
 
-router.get('/addForm', (req, res) => {
+router.get('/add-product', (req, res) => {
     res.render('form');
 })
 
@@ -50,6 +50,13 @@ router.post('/insert', upload.single("image"), (req, res) => {
     Product.saveProduct(data, (err) => {
         if(err) console.log(err);
         res.redirect('/');
+    })
+})
+
+router.get('/:id', (req, res) => {
+    const product_id = req.params.id;
+    Product.findOne({_id:product_id}).exec((err, doc) => {
+        res.render('product', {product:doc});
     })
 })
 
