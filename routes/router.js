@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/add-product', (req, res) => {
-    if(req.cookies.login){
+    if(req.session.login){
         res.render('form'); //บันทึกสินค้้า
     }else{
         res.render('admin'); //เข้าสู่ระบบ
@@ -28,7 +28,7 @@ router.get('/add-product', (req, res) => {
 })
 
 router.get('/manage', (req, res) => {
-    if(req.cookies.login){
+    if(req.session.login){
         Product.find().exec((err, doc) => {
             res.render('manage',{products:doc});
         })
@@ -40,10 +40,9 @@ router.get('/manage', (req, res) => {
 //logout
 router.get('/logout', (req, res) => {
     console.log("test logout");
-    res.clearCookie('username');
-    res.clearCookie('password');
-    res.clearCookie('login');
-    res.redirect('/manage');
+    res.session.destroy((err) => {
+        res.redirect('/manage');
+    })
 })
 
 router.get('/delete/:id', (req, res) => {
@@ -104,10 +103,11 @@ router.post('/login', (req, res) => {
     const timeExpire = 30000; // 30 sec.
 
     if(username === "admin" && password === "1234"){
-        //สร้าง cookie
-        res.cookie('username', username, {maxAge:timeExpire});
-        res.cookie('password', password, {maxAge:timeExpire});
-        res.cookie('login', true, {maxAge:timeExpire});
+        //สร้าง session
+        req.session.username = req.body.username;
+        req.session.password = req.body.password;
+        req.session.login = true
+        req.session.cookie.maxAge = timeExpire;
         res.redirect('/manage');
     }
     else{
